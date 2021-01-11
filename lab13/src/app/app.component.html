@@ -1,0 +1,98 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      
+      <h1> Ingrese  sus datos personales </h1>
+      <hr>
+
+      <form [formGroup]="angForm" class="needs-validation" novalidate>
+        <div class="mb-3 col-md-12">
+          <label for="name" class="form-label">Nombres</label>
+          <input type="text" class="form-control" id="name" name="name" formControlName="name" placeholder="Ingrese su nombre" required #name>
+          <div class="alert-danger mt-3" *ngIf="isValidField('name')">
+            <span>
+              {{getErrorMessage('name')}}
+            </span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="mb-3 col-md-6">
+            <label for="firstlastname" class="form-label">Primer Apellido</label>
+            <input type="text" class="form-control" id="firstlastname" name="firstlastname" formControlName="firstlastname"
+              placeholder="Ingrese su primer apellido" required #firstlastname>
+            <div class="alert-danger mt-3" *ngIf="isValidField('firstlastname')">
+              <span>
+                {{getErrorMessage('firstlastname')}}
+              </span>
+            </div>
+          </div>
+          
+          <div class="mb-3 col-md-6">
+            <label for="secondlastname" class="form-label">Segundo Apellido</label>
+            <input type="text" class="form-control" id="secondlastname" name="secondlastname" formControlName="secondlastname"
+              placeholder="Ingrese su segundo apellido" required #secondlastname>
+            <div class="alert-danger mt-3" *ngIf="isValidField('secondlastname')">
+              <span>
+                {{getErrorMessage('secondlastname')}}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="birthdaydate" class="form-label">Fecha de nacimiento</label>
+          <input type="date" class="form-control" id="birthdaydate" name="birthdaydate" formControlName="birthdaydate" placeholder="Ingrese fecha de nacimiento" required #birthdaydate>
+          <div class="alert-danger mt-3" *ngIf="isValidField('birthdaydate')">
+            <span>
+              {{getErrorMessage('birthdaydate')}}
+            </span>
+          </div>
+        </div>
+        
+        <div class="mb-3">
+          <label for="email" class="form-label">Correo Electronico</label>
+          <input type="email" class="form-control" id="email" name="email" formControlName="email" placeholder="Ingrese su correo electronico" required #email>
+          <div class="alert-danger mt-3" *ngIf="isValidField('email')">
+            <span>
+              {{getErrorMessage('email')}}
+            </span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="mb-3 col-md-6">
+            <label for="password" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="password" name="password" formControlName="password"
+              placeholder="Ingrese contraseña" required #password>
+            <div class="alert-danger mt-3" *ngIf="isValidField('password')">
+              <span>
+                {{getErrorMessage('password')}}
+              </span>
+            </div>
+          </div>
+          
+          <div class="mb-3 col-md-6">
+            <label for="confirmpassword" class="form-label">Confirmar contraseña</label>
+            <input type="password" class="form-control" id="confirmpassword" name="confirmpassword"
+              formControlName="confirmpassword" placeholder="Confirmar contraseña" required #confirmpassword>
+            <div class="alert-danger mt-3" *ngIf="isValidField('confirmpassword')">
+              <span>
+                {{getErrorMessage('confirmpassword')}}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <input class="btn btn-primary w-100" type="submit" value="Enviar" (click)="onClickSubmit(name.value, firstlastname.value, secondlastname.value, birthdaydate.value, email.value, password.value, confirmpassword )">
+
+      </form>
+    </div>
+  </div>
+</div>
+
+<!--    <input type="text" name="email" placeholder="email" formControlName="email" #email>
+        <br />
+        <input type="password" name="pwd" placeholder="password" #password>
+        <br />
+        <input type="submit" value="submit" (click)="onClickSubmit(email.value, password.value)"> -->
